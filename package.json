@@ -1,6 +1,6 @@
 {
-  "name": "type-odm",
-  "version": "1.0.0",
+  "name": "typeodm.io",
+  "version": "1.1.0",
   "main": "lib/index.js",
   "types": "lib/types/index.d.ts",
   "author": "Cervantes007",
