@@ -16,7 +16,7 @@ describe('insert', () => {
   });
 
   afterAll(async () => {
-    await connection.close();
+    await mongoose.connection.close();
   });
 
   test(`Testing create and virtuals`, async () => {
