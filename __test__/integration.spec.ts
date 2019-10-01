@@ -6,7 +6,7 @@ describe('insert', () => {
   const databaseName = 'test';
 
   beforeAll(async () => {
-    const url = process.env.MONGO_URL;
+    const url = `mongodb://127.0.0.1/${databaseName}`;
     connection = await mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true }, err => {
       if (err) {
         console.error(err);

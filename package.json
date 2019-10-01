@@ -28,8 +28,9 @@
     "transform": {
       "^.+\\.tsx?$": "ts-jest"
     },
-    "collectCoverageFrom": ["src/**/*.ts"],
-    "preset": "@shelf/jest-mongodb",
+    "collectCoverageFrom": [
+      "src/**/*.ts"
+    ],
     "testEnvironment": "node",
     "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
     "moduleFileExtensions": [
@@ -42,7 +43,6 @@
     ]
   },
   "devDependencies": {
-    "@shelf/jest-mongodb": "^1.1.1",
     "@types/bcryptjs": "^2.4.2",
     "@types/jest": "^24.0.18",
     "@types/mongoose": "^5.5.18",
