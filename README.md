@@ -67,7 +67,7 @@ You can find more useful functions for 'UserModel' <a href="https://mongoosejs.c
 
 
 ## Document
-- [x] `@document`
+- [x] [@document](#document)
 
 ## Schema Types:
 
@@ -147,11 +147,20 @@ export class Post {
 }
 ```
 
+## API
+
+### @document
+You must annotate a class with `@document` in order to use is as mongoose schema and to can extract a model from it.
+
+`@document(config: SchemaOptions)` you can pass a <a href="https://mongoosejs.com/docs/guide.html#options">SchemaOptions</a>  object as parameter.
+
 ## Todo:
 - [ ] find a way to set correct types for `@query` and `@statics`
 - [ ] add `@plugin` decorator
 - [ ] improve api doc
 - [ ] improve use-case examples
+
+
 
 
 
