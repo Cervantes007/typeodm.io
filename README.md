@@ -70,7 +70,7 @@ You can find more useful functions for 'UserModel' <a href="https://mongoosejs.c
 
 ## Core:
 
-- [x] [@document](#@document)
+- [x] [@document](#document)
 
 ## Schema Types:
 
