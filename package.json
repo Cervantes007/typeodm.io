@@ -1,0 +1,62 @@
+{
+  "name": "type-odm",
+  "version": "1.0.0",
+  "main": "lib/index.js",
+  "types": "lib/types/index.d.ts",
+  "author": "Cervantes007",
+  "keywords": [
+    "odm",
+    "mongo",
+    "mongodb",
+    "mongoose",
+    "decorator",
+    "typescript"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Cervantes007/type-odm.git"
+  },
+  "license": "MIT",
+  "scripts": {
+    "build": "rm -rf ./lib && tsc",
+    "format": "prettier --write './src/**/*.{ts,tsx}'",
+    "test": "jest",
+    "lint": "tslint './src/**/*.{ts,tsx}'",
+    "precommit": "pretty-quick --staged"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "collectCoverageFrom": ["src/**/*.ts"],
+    "preset": "@shelf/jest-mongodb",
+    "testEnvironment": "node",
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  },
+  "devDependencies": {
+    "@shelf/jest-mongodb": "^1.1.1",
+    "@types/bcryptjs": "^2.4.2",
+    "@types/jest": "^24.0.18",
+    "@types/mongoose": "^5.5.18",
+    "bcryptjs": "^2.4.3",
+    "husky": "^3.0.7",
+    "jest": "^24.9.0",
+    "mongoose": "^5.7.1",
+    "prettier": "^1.18.2",
+    "pretty-quick": "^1.11.1",
+    "reflect-metadata": "^0.1.13",
+    "ts-jest": "^24.1.0",
+    "tslint": "^5.20.0",
+    "tslint-config-airbnb": "^5.11.2",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.6.3"
+  }
+}
