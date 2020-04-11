@@ -1,14 +1,14 @@
 # typeodm.io ![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg) [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier) [![Build Status](https://travis-ci.org/Cervantes007/typeodm.io.svg?branch=master)](https://travis-ci.org/Cervantes007/typeodm.io) [![codecov](https://codecov.io/gh/Cervantes007/typeodm.io/branch/master/graph/badge.svg)](https://codecov.io/gh/Cervantes007/typeodm.io)
 
-Improve typescript experience using <a href="https://mongoosejs.com" >mongoose</a> with decorators.
+Improve your [mongoose](https://mongoosejs.com) experience by using TypeScript with decorators.
 
 ## Features
 
-- `typescript` first class support.
+- First-class TypeScript support.
 - Build your entire documents with decorators.
-- Fully tested (unit and integration test for every line of code).
+- Full test coverage (unit and integration tests for every line of code).
 - Easy to use.
-- Nothing new to learn (It's just <a href="https://mongoosejs.com" >mongoose</a> in a decorator way)
+- Nothing new to learn (it's just [mongoose](https://mongoosejs.com) with [decorators](https://www.typescriptlang.org/docs/handbook/decorators.html))
 
 ## Installation
 
@@ -20,7 +20,7 @@ Dependencies
 
 `npm install metadata mongoose @types/mongoose --save`
 
-Remember enable decorators in tsconfig.json
+Remember to enable decorators in `tsconfig.json`:
 
 ```
 "experimentalDecorators": true,
@@ -29,7 +29,7 @@ Remember enable decorators in tsconfig.json
 
 ## Getting Started
 
-defining simple 'User' document and export model
+Define a simple `User` document and export the model:
 
 ```typescript
 /* user.document.ts */
@@ -43,7 +43,7 @@ export class User {
 export const UserModel = new getModel<User>(User);
 ```
 
-using UserModel
+You can now use `UserModel`:
 
 ```typescript
 /* Somewhere in your code, basic CRUD operations */
@@ -66,7 +66,7 @@ UserModel.findByIdAndUpdate(id, { username: 'charlie 2' });
 UserModel.findByIdAndRemove(id);
 ```
 
-You can find more useful functions for 'UserModel' <a href="https://mongoosejs.com/docs/queries.html" >here</a>
+You can find more useful functions for 'UserModel' in the [mongoose queries](https://mongoosejs.com/docs/queries.html) documentation.
 
 ## Core:
 
@@ -110,26 +110,26 @@ You can find more useful functions for 'UserModel' <a href="https://mongoosejs.c
 
 - [x] `@methods`
 - [x] `@virtuals`
-- [x] `@query` (Not have type support yet, but works fine)
-- [x] `@statics` (Not have type support yet, but works fine)
+- [x] `@query` (No type support yet, but works fine)
+- [x] `@statics` (No type support yet, but works fine)
 
-## Use case Post-Comment
+## Use case: Post with Comments
 
-A comment only exists and belong to one post, therefore it must be saved as a subdocument, hasn't sense to create a collection to store comments. Example:
+A comment only exists and belong to one post, therefore it must be saved as a subdocument (it doesn't make sense to create a collection to store comments). Example:
 
 ```typescript
 @document()
 export class Comment {
-  // define 'message' property required and set rule minlength(2)
+  // define the 'message' property as required and set rule minlength(2)
   @required()
   @length(2)
   message: string;
 
-  // define 'author' property optional
+  // define the 'author' property as optional
   @optional()
   author: string;
 
-  // define 'status' propery to be 'pending' or 'approved'
+  // define the 'status' propery to be 'pending' or 'approved'
   @isIn(['pending', 'approved'])
   status: string;
 }
@@ -156,10 +156,9 @@ export class Post {
 }
 ```
 
-## Use case User-Todo
+## Use case: User and Todos
 
-In almost all applications the resource are store by user,
-in this case we'll see how to create documents 'User' and 'Todo' where each 'Todo' belong to a user.
+In almost all applications, resources belong to users. In this, we have `User` and `Todo` documents, where each `Todo` belongs to a user, via a [ref](https://mongoosejs.com/docs/populate.html).
 
 ```typescript
 @document()
@@ -185,32 +184,31 @@ export class Todo {
 export const TodoModel = getModel<Todo>(Todo);
 ```
 
-Getting a `Todo` list with the user data populated.
-Using populate `query` to property 'Todo.user' and projection `username` to return only `User._id` and `User.username`
+Here's how to get a `Todo` list with the user data populated. We'll use a `populate` query to populate the field `Todo.user` with a User objecct, and project only the `username` field (so the query will return only `User._id` and `User.username`):
 
 ```typescript
 const todos = await TodoModel.find().populate('user', 'username');
 ```
 
-Now will see how to save a `Todo`
+Now let's see how to save a `Todo` for a `User` we may create, or obtain from the database or an HTTP request.
 
 ```typescript
 // getting user by creating a new one
 const userToSave = new UserModel({ username: 'charlie', password: 'asd!@#$' });
 const user = await userToSave.save();
 
-// getting user by data base query
+// getting user from a database query
 const user = await UserModel.find({ username: 'charlie' });
 
-// getting user from request after jwt put it there
+// getting user from HTTP request
 const user = req.user;
 
-// after getting the `user._id` no matter what source you can save a `Todo` for this user in the following way:
-const todoToSave = new TodoModel({ title: 'Go to market for some oranges' });
+// after making sure we have `user._id` form some source, we can save a `Todo` for this user as follows:
+const todoToSave = new TodoModel({ title: 'Go to the market for some oranges' });
 todoToSave.user = user._id;
 const todo = await todoToSave.save();
 
-// in some case you don't now if user._id if an instance of ObjectId, to be sure do:
+// in some case you don't now if user._id is an instance of ObjectId; to make sure, run:
 const userId = new ObjectId(user._id);
 ```
 
@@ -218,9 +216,9 @@ const userId = new ObjectId(user._id);
 
 ### @document
 
-You must annotate a class with `@document` in order to use is as mongoose schema and to can extract a model from it.
+You must annotate a class with `@document` in order to use it as a mongoose schema and to extract a model from it.
 
-`@document(config: SchemaOptions)` you can pass a <a href="https://mongoosejs.com/docs/guide.html#options">SchemaOptions</a> object as parameter.
+`@document(config: SchemaOptions)` you can pass a [SchemaOptions](https://mongoosejs.com/docs/guide.html#options) object as parameter.
 
 ## Todo:
 
