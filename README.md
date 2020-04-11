@@ -1,4 +1,4 @@
-# typeodm.io ![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg) [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier) [![Build Status](https://travis-ci.org/Cervantes007/typeodm.io.svg?branch=master)](https://travis-ci.org/Cervantes007/typeodm.io) [![codecov](https://codecov.io/gh/Cervantes007/typeodm.io/branch/master/graph/badge.svg)](https://codecov.io/gh/Cervantes007/typeodm.io)
+# typeodm.io ![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg) [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier) [![Build Status](https://travis-ci.org/Cervantes007/typeodm.io.svg?branch=master)](https://travis-ci.org/Cervantes007/typeodm.io) [![codecov](https://codecov.io/gh/Cervantes007/typeodm.io/branch/master/graph/badge.svg)](https://codecov.io/gh/Cervantes007/typeodm.io) [![NPM version](https://badge.fury.io/js/typeodm.io.svg)](http://badge.fury.io/js/typeodm.io)
 
 Improve your [mongoose](https://mongoosejs.com) experience by using TypeScript with decorators.
 
