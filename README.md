@@ -87,7 +87,7 @@ You can find more useful functions for 'UserModel' in the [mongoose queries](htt
 
 - [x] `@unique`
 - [x] `@index`
-- [x] `@spare`
+- [x] `@sparse`
 
 ##### String
 
