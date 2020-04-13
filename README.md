@@ -87,7 +87,7 @@ You can find more useful functions for 'UserModel' <a href="https://mongoosejs.c
 
 - [x] `@unique`
 - [x] `@index`
-- [x] `@spare`
+- [x] `@sparse`
 
 ##### String
 
